@@ -1,26 +1,25 @@
-def event_sum(a, l, r):
-    sum = 0
-    for i in range(l, r):
-        sum += a[i]
-    return sum
-
 n, q = map(int, input().split())
 a = list(map(int, input().split()))
-list_l = [ None ] * q
-list_r = [ None ] * q
-for j in range(q):
-	list_l[j], list_r[j] = map(int, input().split())
+num = []
+# print("n: ", n)
+# print("q: ", q)
+# print("a: ", a)
+num.append(a[0])
+for i in range(1, n):
+    num.append(a[i] + num[i - 1])
+# print("num: ", num)
+l = []
+r = []
+for i in range(q):
+    l_val, r_val = map(int, input().split())
+    l.append(l_val)
+    r.append(r_val)
 
 for i in range(q):
-    print(event_sum(a, list_l[i]-1, list_r[i]))
+    # print(f"{num[r[i]-1]}-{num[l[i]-2]}")
+    if l[i]-2 < 0:
+        ans = num[r[i]-1]
+    else:
+        ans = num[r[i]-1]-num[l[i]-2]
+    print(ans)
 
-
-
- 
-# S = [ None ] * (N + 1)
-# S[0] = 0
-# for i in range(N):
-# 	S[i + 1] = S[i] + A[i]
- 
-# for j in range(Q):
-# 	print(S[R[j]] - S[L[j] - 1])
