@@ -1,0 +1,9 @@
+services:
+  tessoku:
+    # image: ubuntu:22.04
+    build: .
+    container_name: tessoku
+    volumes:
+      - .:/app/
+    working_dir: /app/
+    tty: true
