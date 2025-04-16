@@ -11,4 +11,7 @@ for i in range(len(a)-1):
     a[i+1] = a[i] + a[i+1]
 
 for i in range(q):
-    print(a[r[i]-1]-a[l[i]-2])
+    if l[i]-2 < 0:
+        print(a[r[i] - 1])
+    else:
+        print(a[r[i] - 1] - a[l[i] - 2])
